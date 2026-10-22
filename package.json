@@ -1,0 +1,60 @@
+{
+  "name": "@your-scope/event-sentinel",
+  "version": "0.1.0",
+  "description": "Durable Kapso received-message processing with PostgreSQL",
+  "type": "module",
+  "private": true,
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "migrations",
+    "docs",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest run --config vitest.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "db:migrate": "tsx --env-file-if-exists=.env scripts/migrate.ts",
+    "example": "tsx --env-file-if-exists=.env examples/orders/server.ts",
+    "example:worker": "tsx --env-file-if-exists=.env examples/orders/worker.ts",
+    "demo:single": "tsx --env-file-if-exists=.env examples/orders/send-fixture.ts single",
+    "demo:batch": "tsx --env-file-if-exists=.env examples/orders/send-fixture.ts batch",
+    "demo:duplicates": "tsx --env-file-if-exists=.env examples/orders/send-fixture.ts duplicates",
+    "demo:batch-item": "tsx --env-file-if-exists=.env examples/orders/send-fixture.ts batch-item",
+    "demo:orders": "tsx --env-file-if-exists=.env examples/orders/read-orders.ts",
+    "bench": "tsx --env-file-if-exists=.env scripts/bench.ts"
+  },
+  "dependencies": {
+    "@types/pg": "^8.23.1",
+    "pg": "^8.16.0",
+    "pino": "^10.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "fastify": "^5.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^5.0.5"
+  }
+}

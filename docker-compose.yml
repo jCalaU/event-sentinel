@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: event_sentinel
+      POSTGRES_PASSWORD: event_sentinel
+      POSTGRES_DB: event_sentinel
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-test-db.sql:/docker-entrypoint-initdb.d/02-test.sql:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U event_sentinel -d event_sentinel']
+      interval: 2s
+      timeout: 2s
+      retries: 20
+volumes:
+  postgres_data:

@@ -1,0 +1,15 @@
+{
+  "message": {
+    "id": "wamid.demo.001",
+    "timestamp": "1730092800",
+    "type": "text",
+    "text": { "body": "buy 1 shirt" },
+    "kapso": {
+      "direction": "inbound",
+      "status": "received",
+      "origin": "cloud_api"
+    }
+  },
+  "conversation": { "id": "conv_demo_1", "phone_number_id": "demo-phone-001" },
+  "phone_number_id": "demo-phone-001"
+}

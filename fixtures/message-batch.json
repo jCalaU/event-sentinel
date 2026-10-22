@@ -1,0 +1,41 @@
+{
+  "type": "whatsapp.message.received",
+  "batch": true,
+  "data": [
+    {
+      "message": {
+        "id": "wamid.demo.002",
+        "timestamp": "1730092801",
+        "type": "text",
+        "text": { "body": "buy 2 hats" },
+        "kapso": { "origin": "business_app" }
+      },
+      "conversation": {
+        "id": "conv_demo_1",
+        "phone_number_id": "demo-phone-001"
+      },
+      "phone_number_id": "demo-phone-001"
+    },
+    {
+      "message": {
+        "id": "wamid.demo.003",
+        "timestamp": "1730092802",
+        "type": "text",
+        "text": { "body": "buy 1 shirt" },
+        "kapso": { "origin": "history_sync" }
+      },
+      "conversation": {
+        "id": "conv_demo_1",
+        "phone_number_id": "demo-phone-001"
+      },
+      "phone_number_id": "demo-phone-001"
+    }
+  ],
+  "batch_info": {
+    "size": 2,
+    "window_ms": 5000,
+    "first_sequence": 1,
+    "last_sequence": 2,
+    "conversation_id": "conv_demo_1"
+  }
+}
